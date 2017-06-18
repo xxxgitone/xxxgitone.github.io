@@ -1,0 +1,1127 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mongodb," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.介绍和安装1.1 介绍MongoDB是一个基于分布式文件存储的数据库，是一个介于关系数据库和非关系数据库之间的产品。Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言 1.2 安装本以为用了Ubuntu就可以不用担心版本问题，结果32bit还是个越不过的坎，当初就是因为mongodb对win7 32bit支持不够友好，所以选择使用Ubuntu，结果我还是太天真，">
+<meta name="keywords" content="mongodb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb安装(Windows和Ubuntu)以及mongodb基本用法">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/mongodb安装-Windows和Ubuntu-以及mongodb基本用法/index.html">
+<meta property="og:site_name" content="Xu•thus Blog">
+<meta property="og:description" content="1.介绍和安装1.1 介绍MongoDB是一个基于分布式文件存储的数据库，是一个介于关系数据库和非关系数据库之间的产品。Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言 1.2 安装本以为用了Ubuntu就可以不用担心版本问题，结果32bit还是个越不过的坎，当初就是因为mongodb对win7 32bit支持不够友好，所以选择使用Ubuntu，结果我还是太天真，">
+<meta property="og:updated_time" content="2017-06-18T13:14:23.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb安装(Windows和Ubuntu)以及mongodb基本用法">
+<meta name="twitter:description" content="1.介绍和安装1.1 介绍MongoDB是一个基于分布式文件存储的数据库，是一个介于关系数据库和非关系数据库之间的产品。Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言 1.2 安装本以为用了Ubuntu就可以不用担心版本问题，结果32bit还是个越不过的坎，当初就是因为mongodb对win7 32bit支持不够友好，所以选择使用Ubuntu，结果我还是太天真，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6381005558069069000',
+      author: 'Xuthus'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/20/mongodb安装-Windows和Ubuntu-以及mongodb基本用法/"/>
+
+
+
+
+
+  <title> mongodb安装(Windows和Ubuntu)以及mongodb基本用法 | Xu•thus Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Xu•thus Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我的成长之路</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/mongodb安装-Windows和Ubuntu-以及mongodb基本用法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Xuthus">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xu•thus Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xu•thus Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mongodb安装(Windows和Ubuntu)以及mongodb基本用法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-20T19:19:34+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/20/mongodb安装-Windows和Ubuntu-以及mongodb基本用法/" class="leancloud_visitors" data-flag-title="mongodb安装(Windows和Ubuntu)以及mongodb基本用法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-介绍和安装"><a href="#1-介绍和安装" class="headerlink" title="1.介绍和安装"></a><a href="#1-介绍和安装" title="1.介绍和安装"></a>1.介绍和安装</h3><h4 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a><a href="#1-1-介绍" title="1.1 介绍"></a>1.1 介绍</h4><p>MongoDB是一个基于分布式文件存储的数据库，是一个介于关系数据库和非关系数据库之间的产品。Mongo最大的特点是它支持的查询语言非常强大，其语法有点类似于面向对象的查询语言</p>
+<h4 id="1-2-安装"><a href="#1-2-安装" class="headerlink" title="1.2 安装"></a><a href="#1-2-安装" title="1.2 安装"></a>1.2 安装</h4><p>本以为用了Ubuntu就可以不用担心版本问题，结果32bit还是个越不过的坎，当初就是因为mongodb对win7 32bit支持不够友好，所以选择使用Ubuntu，结果我还是太天真，mongodb同样不在支持32bit 的Ubuntu，在官网上已经下载不到32bit的mongodb（哭瞎），于是一顿google加stack overflow，最终还是安装好了</p>
+<ul>
+<li>下载<a href="http://dl.mongodb.org/dl/linux/i686" target="_blank" rel="external">mongodb</a></li>
+<li>将下载的压缩包复制到自己的目录下，解压 <code>tar zxvf mongodb-linux-i686-3.2.13.tgz</code></li>
+<li>为了方便，重命名为简短一点的名字<code>mv mongodb-linux-i686-3.2.13.tgz mongodb</code></li>
+<li>余下步骤跟win设置差不多，就是最后设置数据库存储路径的时候需要添加额外的参数， 创建目录<code>mkdir db</code></li>
+<li>路径 <code>cd ./bin</code></li>
+<li><code>./mongod --dbpath=../db --storageEngine=mmapv1</code>区别就在于最后一行参数</li>
+<li>开启mongodb <code>./mongo</code></li>
+</ul>
+<h3 id="2-基本用法"><a href="#2-基本用法" class="headerlink" title="2.基本用法"></a><a href="#2-基本用法" title="2.基本用法"></a>2.基本用法</h3><h4 id="2-1-浏览数据库-这里以数据库library为例"><a href="#2-1-浏览数据库-这里以数据库library为例" class="headerlink" title="2.1 浏览数据库(这里以数据库library为例)"></a><a href="#2-1-浏览数据库-这里以数据库library为例" title="2.1 浏览数据库(这里以数据库library为例)"></a>2.1 浏览数据库(这里以数据库library为例)</h4><ul>
+<li>切换到已有数据库或者创建新的数据库 <code>use library</code></li>
+<li>查看可用数据库 <code>show dbs</code> 或 <code>show databases</code></li>
+<li>查看可用集合 <code>show collections</code></li>
+<li>查看当前使用数据库 <code>db</code></li>
+<li>使用集合 <code>db.media</code>(media为集合名)</li>
+</ul>
+<h4 id="2-2-集合中插入数据"><a href="#2-2-集合中插入数据" class="headerlink" title="2.2 集合中插入数据"></a><a href="#2-2-集合中插入数据" title="2.2 集合中插入数据"></a>2.2 集合中插入数据</h4><p>mongodb使用的是BSON(JSON的二进制)格式存储数据</p>
+<ul>
+<li><p>可以先定义数据，然后在调用insertOne函数插入数据库中,media为集合名，不存在的时候会自动创建</p>
+<pre><code>doc = ({&amp;quot;Type&amp;quot;: &amp;quot;Book&amp;quot;,
+</code></pre><p>… &quot;Title&quot;: &quot;Definitive Guide to MongoDB&quot;,<br>… &quot;ISBN&quot;: &quot;987-1-4842-1183-0&quot;,<br>… &quot;Publisher&quot;: &quot;Apress&quot;,<br>… &quot;Author&quot;: [&quot;Hows, David&quot;,&quot;Plugge Eelco&quot;,&quot;Membrey, Peter&quot;]    })<br>db.media.insertOne(doc)<br>`</p>
+</li>
+<li><p>直接使用后insertOne方法插入</p>
+<pre>db.media.insertOne({ &quot;Type&quot;: &quot;DVD&quot;,
+... &quot;Artist&quot;: &quot;Nirvana&quot;,
+... &quot;Title&quot;: &quot;Nevermind&quot;,
+... &quot;Tracklist&quot;: [
+... {
+... &quot;Track&quot;: &quot;1&quot;,
+... &quot;Title&quot;: &quot;Smells Like Teen Spirit&quot;,
+... &quot;Length&quot;: &quot;5:02&quot;,
+... },
+... {
+... &quot;Track&quot;: &quot;2&quot;,
+... &quot;Title&quot;: &quot;In Bloom&quot;,
+... &quot;Length&quot;: &quot;4:15&quot;,
+... }
+... ]
+... })
+</pre>
+
+<h4 id="2-3-查询数据"><a href="#2-3-查询数据" class="headerlink" title="2.3 查询数据"></a><a href="#2-3-查询数据" title="2.3 查询数据"></a>2.3 查询数据</h4><p>使用find函数</p>
+</li>
+<li><p>查询出集合总所有数据 <code>db.media.find()</code></p>
+</li>
+<li>查询特定类型的数据 <code>db.media.find({ Artist: &amp;quot;Nirvana&amp;quot; })</code></li>
+<li><p>查询特定类型的数据，但指定显示的信息，在指定的显示信息后面加上参数1 <code>db.media.find({ Artist: &amp;quot;Nirvana&amp;quot;}, {Title: 1} )</code>,还可以使用参数0来取反，就是除它以外的所有信息</p>
+<h5 id="2-3-1-使用点号"><a href="#2-3-1-使用点号" class="headerlink" title="2.3.1 使用点号"></a><a href="#2-3-1-使用点号" title="2.3.1 使用点号"></a>2.3.1 使用点号</h5><p>使用<code>.</code>查找文档中的内嵌信息，处理数组时代码更加简单。比如找到所有办函了特定歌曲的CD</p>
+<pre>db.media.find({&quot;Tracklist.Title&quot;: &quot;In Bloom&quot;})
+</pre>
+
+<p>还可以直接写数组中的项，每一项必须精确匹配。比如查询作者的图书列表，(示例中的作者是以数组的形式存在)。</p>
+<pre>db.media.find({&quot;Author&quot;:&quot;Membrey, Peter&quot;})
+</pre>
+
+<p>下面这条语句没有精确匹配，就就查不到任何内容</p>
+<pre>db.media.find({&quot;Tracklist&quot;: {&quot;Track&quot;: &quot;1&quot;}})
+</pre>
+
+<h5 id="2-3-2-使用函数sort，limit和skip"><a href="#2-3-2-使用函数sort，limit和skip" class="headerlink" title="2.3.2 使用函数sort，limit和skip"></a><a href="#2-3-2-使用函数sort，limit和skip" title="2.3.2 使用函数sort，limit和skip"></a>2.3.2 使用函数<code>sort</code>，<code>limit</code>和<code>skip</code></h5></li>
+<li><p><code>sort()</code> 可以对查询结果进行排序，使用参数1或-1将结果按照升序或降序排列，不指定参数的或默认为1，即升序</p>
+<pre>`db.media.find().sort({Title: 1})
+`</pre></li>
+<li><code>limit()</code> 限制返回结果的最大数目，参数为数值，默认或者0则返回所有数据。下面表示只返回集合中的前10个文档<pre>`db.media.find().limit(10)
+`</pre></li>
+<li><code>skip()</code> 忽略文档中前n个文档.下面表示忽略文档前20个<pre>`db.media.find().skip(20)
+`</pre></li>
+<li><p>可以连用这些函数，实现分页功能</p>
+<pre>`db.media.find({ Title: -1 }).limit(10).skip(20)
+`</pre>
+
+<h5 id="2-3-3-获取单个文档"><a href="#2-3-3-获取单个文档" class="headerlink" title="2.3.3 获取单个文档"></a><a href="#2-3-3-获取单个文档" title="2.3.3 获取单个文档"></a>2.3.3 获取单个文档</h5><p><code>findOne()</code>与<code>limit(1)</code>得到的结果一致，如果获取一个的时候推荐使用<code>findOne()</code></p>
+<pre>db.media.findOne()
+</pre>
+
+<h5 id="2-3-4-使用聚集命令"><a href="#2-3-4-使用聚集命令" class="headerlink" title="2.3.4 使用聚集命令"></a><a href="#2-3-4-使用聚集命令" title="2.3.4 使用聚集命令"></a>2.3.4 使用聚集命令</h5><p>Mongodb包含三个基本的聚集函数<code>count()</code>, <code>distinct()</code>,<code>group()</code></p>
+</li>
+<li><p><code>count()</code>返回文档数目</p>
+<ul>
+<li>显示集合包含多少个文档 <code>db.media.count()</code></li>
+<li>结合操作符使用 <code>db.media.find({ Publisher: &amp;quot;Apress&amp;quot;, Type: &amp;quot;Book&amp;quot; }).count()</code></li>
+</ul>
+</li>
+<li><p><code>distinct()</code>获取唯一值</p>
+<p>上面示例查询了指定出版商图书信息的文档数目，但是如果集合总有多本书(实体书和电子书)含有相同标题,实质上他们为同一本书，就可以使用<code>distinct()</code>函数获取唯一值</p>
+<p>插入一本书，只修改ISBN号，其他信息相同</p>
+<pre>db.media.insertOne({&quot;Type&quot;: &quot;Book&quot;,&quot;Title&quot;: &quot;Definitive Guide to MongoDB&quot;,&quot;ISBN&quot;: &quot;987-1-4842-1183-1&quot;,&quot;Publisher&quot;: &quot;Apress&quot;,&quot;Author&quot;: [&quot;Hows, David&quot;,&quot;Plugge Eelco&quot;,&quot;Membrey, Peter&quot;]})
+</pre>
+
+<p>这时数据库中含有两本标题一样的书了</p>
+<pre>db.media.distinct(&quot;Title&quot;)
+</pre>
+
+<p>输出，另一个结果显示为<code>Nevermind</code></p>
+<pre>[ &quot;Definitive Guide to MongoDB&quot;, &quot;Nevermind&quot; ]
+</pre>
+
+<p>如果查询ISBN，则会返回两条数据</p>
+<pre>db.media.distinct(&quot;ISBN&quot;)
+</pre>
+
+<p>输出</p>
+<pre>[ &quot;987-1-4842-1183-0&quot;, &quot;987-1-4842-1183-1&quot; ]
+</pre>
+
+<p>可以接受嵌套键</p>
+<pre>db.media.distinct(&quot;Tracklist.Title&quot;)
+</pre>
+
+<p>输出</p>
+<pre>[ &quot;In Bloom&quot;, &quot;Smells Like Teen Spirit&quot; ]
+</pre>
+</li>
+<li><p><code>group()</code> 将结果分组</p>
+<p>接受3个参数<code>key</code>，<code>initial</code>，<code>reduce</code></p>
+<pre>`* `key`指定希望使用哪个键对结果进行分组
+* `initial` 为每个以分组的结果提供基数。如果希望返回指定的数字，这个参数就应默认为0
+* `reduce` 把所有类似的条目分组在一起
+`</pre>
+
+<p>比如，希望获取集合中任何类型的所有唯一标题列表，另外，只要发现任何相同的元素，就基于标题将他么添加到同一组</p>
+<pre>db.media.group( 
+  { 
+    key: {Title: true}, 
+    initial: {Total: 0}, 
+    reduce: function(items, prev) { 
+      prev.Total += 1 
+    } 
+  } 
+)
+</pre>
+
+<p><code>items</code>, <code>prev</code>参数分别表示正在遍历的当前文档和聚集基数对象，最后结果为</p>
+<pre>[
+    {
+        &quot;Title&quot; : &quot;Nevermind&quot;,
+        &quot;Total&quot; : 1
+    },
+    {
+        &quot;Title&quot; : &quot;Definitive Guide to MongoDB&quot;,
+        &quot;Total&quot; : 1
+    }
+]
+</pre>
+
+<h5 id="2-3-5-使用条件操作符"><a href="#2-3-5-使用条件操作符" class="headerlink" title="2.3.5 使用条件操作符"></a><a href="#2-3-5-使用条件操作符" title="2.3.5 使用条件操作符"></a>2.3.5 使用条件操作符</h5><p>MongoDB支持大量的条件操作符用于更好的过滤结果。增减一些文档</p>
+<pre>db.media.insertOne({&quot;Type&quot;: &quot;DVD&quot;, &quot;Title&quot;: &quot;Matrix, The&quot;, &quot;Released&quot;: 1999, &quot;Cast&quot;: [&quot;Keanu Reeves&quot;, &quot;Carrie-Anne Moss&quot;, &quot;Laurence Fishburne&quot;, &quot;Hugo Weaving&quot;, &quot;Gloria Foster&quot;, &quot;Joe Pantoliano&quot;]})
+
+db.media.insertOne({&quot;Type&quot;: &quot;DVD&quot;, &quot;Title&quot;: &quot;Blade Runner&quot;, &quot;Released&quot;: 1982})
+
+db.media.insertOne({&quot;Type&quot;: &quot;DVD&quot;, &quot;Title&quot;: &quot;Toy Story 3&quot;, &quot;Released&quot;: 2010})
+</pre>
+</li>
+<li><p>执行大于或者小于比较<code>$gt</code>,<code>$lt</code>,<code>$gte</code>,<code>$lte</code></p>
+<ul>
+<li><code>$gt</code> 大于，指定文档中的某个整数必须大于指定的值<br><code>db.media.find({ Released: {$gt: 2000} }, { &amp;quot;Cast&amp;quot;: 0 })</code></li>
+<li><code>$gte</code> 大于等于<br><code>db.media.find({ Released: {$gte: 1999} }, { &amp;quot;Cast&amp;quot;: 0 })</code></li>
+<li><code>$lt</code>,<code>$lte</code>分别表示小于和小于等于，用法更上面类似</li>
+<li>可以结合设置一个范围<br><code>db.media.find({ Released: {$gte: 1999, $lt: 2010} }, { &amp;quot;Cast&amp;quot;: 0 })</code></li>
+</ul>
+</li>
+<li>获取除特定文档之外的所有文档<code>$ne</code><br>  返回作者不是<code>Plugge Eelco</code>的所有图书<code>db.media.find({ Type: &amp;quot;Book&amp;quot;, Author: {$ne: &amp;quot;Plugge Eelco&amp;quot;}})</code></li>
+<li>指定一个匹配的数组(<code>$in</code>, 相反不在数组中的值<code>$nin</code>，用法一致)<br>  返回发行年份为数组里面的文档信息<code>db.media.find({Released: {$in: [1999,2008,2009]}}, {&amp;quot;Cast&amp;quot;: 0})</code></li>
+<li><p>匹配文档中所有属性(<code>$all</code>)<br>  工作方式与<code>$in</code>类似，区别在与<code>$all</code>要求所有属性都匹配,<code>$in</code>匹配一个就行</p>
+<pre>db.media.find({Released: {$in: [1999, 2000]}}, {&quot;Cast&quot;: 0})
+</pre>
+
+<p>输出</p>
+<pre>{ &quot;_id&quot; : ObjectId(&quot;5922bb479a45340aa9383932&quot;), &quot;Type&quot; : &quot;DVD&quot;, &quot;Title&quot; : &quot;Matrix, The&quot;, &quot;Released&quot; : 1999 }
+</pre>
+
+<p>而</p>
+<pre>db.media.find({Released: {$all: [1999, 2000]}}, {&quot;Cast&quot;: 0})
+</pre>
+
+<p>不会返回任何东西，文档中没有发行年份为2000的,所以不能完全匹配，则没有结果</p>
+</li>
+<li><p>文档中搜索多个表达式</p>
+<p>在单个查询中可以使用<code>$or</code>操作符搜索多个表达式，将返回满足其中任何一个条件的文档。与<code>$in</code>不同，<code>$or</code>可以同时指定键和值，而不只是指定值</p>
+<pre>db.media.find({$or: [{ &quot;Title&quot;: &quot;Toy Story 3&quot;}, {&quot;ISBN&quot;: &quot;978-1-4842-1183-0&quot;}]})
+</pre>
+
+<p>还可以结合另一个查询参数使用</p>
+<pre>db.media.find({&quot;Type&quot;: &quot;DVD&quot;, $or: [{ &quot;Title&quot;: &quot;Toy Story 3&quot;}, {&quot;ISBN&quot;: &quot;978-1-4842-1183-0&quot;}]})
+</pre>
+
+<p>先满足第一个条件，在执行第二个</p>
+</li>
+<li><p>使用<code>$slice</code>获取文档<br>该方法可以把数组字段限制为匹配结果的一个数组子集。接受两个参数，第一个参数表示将要返回数据项的总数，第二个为可选参数，如果使用了第二个参数，那么第一个参数将用于定义偏移，第二个参数用于定义限制</p>
+<ul>
+<li>返回Cast列表中前3项 <code>db.media.find({&amp;quot;Title&amp;quot;: &amp;quot;Matrix, The&amp;quot;}, {&amp;quot;Cast&amp;quot;: {$slice: 3}})</code></li>
+<li>可以通过负数获取后3项 <code>db.media.find({&amp;quot;Title&amp;quot;: &amp;quot;Matrix, The&amp;quot;}, {&amp;quot;Cast&amp;quot;: {$slice: -3}})</code></li>
+<li>忽略强两项，并限制返回从某个点开始的3个数据<code>db.media.find({&amp;quot;Title&amp;quot;: &amp;quot;Matrix, The&amp;quot;}, {&amp;quot;Cast&amp;quot;: {$slice: [2,3] }})</code></li>
+<li>忽略最后5项数据，并将结果输出限制4条 <code>db.media.find({&amp;quot;Title&amp;quot;: &amp;quot;Matrix, The&amp;quot;}, {&amp;quot;Cast&amp;quot;: {$slice: [-5,4] }})</code></li>
+</ul>
+</li>
+<li>搜索奇数/偶数<code>$mod</code><br>  通过<code>$mod</code>操作符可以搜索由奇数或者偶数组成的特定数据，该操作将把目标值除以2，检查运算余数为0还是为1，余数为0则为偶数，余数为1则为基数<br><pre>db.media.find({ Released: { $mod: [2, 0] }}, {&quot;Cast&quot;: 0})<br></pre><br>  奇数<br>  db.media.find({ Released: { $mod: [2, 1] }}, {“Cast”: 0})<blockquote>
+<p>注意:只能处理整数，不能处理包含数组的字符串，比如{Released: “2010”}</p>
+</blockquote>
+</li>
+<li><code>$size</code>过滤结果<br>  该操作符可以过滤出文档中数组大小符合条件的结果，比如搜索只含有两首歌曲的CD<pre>db.media.find({ Tracklist: {$size:2} })
+</pre></li>
+<li>返回含有特定字段的对象<br>  <code>$exists</code>将在特定字段存在或不存在的情况下，返回该对象，比如返回集合中含有键<code>Author</code>的所有文档<br><pre>db.media.find({Author: {$exists: true} })</pre><br>  当<code>$exists</code>为<code>false</code>的时候，则返回所有不含<code>Author</code>的文档</li>
+<li><p>匹配完整数组<code>$elemMatch</code><br>  如果集合中有多个文档，其中一些文档包含一些相同的信息，使用<code>$elemMatch</code>可以进行数组完整匹配。<br>  新增一条数据，和之前那条<code>Nirvana</code>的CD包含相同的曲目”Smells Like Teen Spirit”，只不过现在”Smells Like Teen Spirit”为曲目”5”</p>
+<pre>db.media.insertOne({ &quot;Type&quot;: &quot;CD&quot;,&quot;Artist&quot;: &quot;Nirvana&quot;,&quot;Title&quot;: &quot;Nirvana&quot;,&quot;Tracklist&quot;: [{&quot;Track&quot;: &quot;1&quot;,&quot;Title&quot;: &quot;You Know You&apos;re Right&quot;,&quot;Length&quot;: &quot;3:38&quot;,},{ &quot;Track&quot;: &quot;5&quot;,&quot;Title&quot;: &quot;Smells Like Teen Spirit&quot;, &quot;Length&quot;: &quot;5:02&quot;, }] })
+</pre>
+  比如查询包含”Smells Like Teen Spirit”的CD，并且曲目为1
+  使用下面语句，两条结果都会被查询出来    
+  <pre>db.media.find({ &quot;Tracklist.Title&quot;: &quot;Smells Like Teen Spirit&quot;, &quot;Tracklist.Track&quot;: &quot;1&quot; })
+</pre>
+  使用`$elemMatch`完整匹配
+
+<pre>db.media.find({ Tracklist: { &quot;$elemMatch&quot;: { Title: &quot;Smells Like Teen Spirit&quot;, Track: &quot;1&quot;} } })
+</pre>
+</li>
+<li><p>指定额外的查询表达式</p>
+<p> 除了目前结构化查询语法，还可以使用JavaScript指定的额外的查询表达式</p>
+<p>  比如，希望查找集合中发布年份早于1995年的DVD，下面这些都可以</p>
+<p>  <code>db.media.find({Type: &amp;quot;DVD&amp;quot;, &amp;quot;Released&amp;quot;: {$lt: 1995}})</code><br>  <code>db.media.find({Type: &amp;quot;DVD&amp;quot;, $where: &amp;quot;this.Released &amp;lt; 1995&amp;quot;})</code><br>  <code>db.media.find(&amp;quot;this.Released &amp;lt; 1995&amp;quot;)</code><br>  <code>f = function() {return this.Released &amp;lt; 1995}</code><br>  <code>db.media.find(f)</code></p>
+</li>
+</ul>
+<h5 id="2-3-6-使用正则表达式"><a href="#2-3-6-使用正则表达式" class="headerlink" title="2.3.6 使用正则表达式"></a><a href="#2-3-6-使用正则表达式" title="2.3.6 使用正则表达式"></a>2.3.6 使用正则表达式</h5><pre><code>`db.media.find({Title: /^Matrix*/i})` 待深入研究
+</code></pre><h4 id="2-4-更新数据"><a href="#2-4-更新数据" class="headerlink" title="2.4 更新数据"></a><a href="#2-4-更新数据" title="2.4 更新数据"></a>2.4 更新数据</h4><h5 id="2-4-1-使用update-更新"><a href="#2-4-1-使用update-更新" class="headerlink" title="2.4.1 使用update()更新"></a><a href="#2-4-1-使用update-更新" title="2.4.1 使用update()更新"></a>2.4.1 使用<code>update()</code>更新</h5><p>可以接受三个参数<code>criteria</code>，<code>objNew</code>, <code>options</code></p>
+<ul>
+<li><code>criteria</code>可以用于指定一个查询</li>
+<li><code>objNew</code> 指定更新信息，也可以使用操作符来完成</li>
+<li><p><code>options</code>用于指定更新文档时的选项，可选值为<code>upsert</code>，<code>multi</code>。<code>upsert</code>表示如果数据存在就更新，不存在就创建。<code>multi</code>可以指定是否应该更新所有匹配的文档，或者只更新第一个文档(默认)</p>
+<pre>db.media.updateOne({&quot;Title&quot; : &quot;Matrix, The&quot;}, {&quot;Type&quot; : &quot;DVD&quot;, &quot;Title&quot; : &quot;Matrix, The&quot;, &quot;Released&quot; : 1999, &quot;Genre&quot;: &quot;Action&quot;}, {upsert: true})
+</pre>
+
+<p>使用上条语句，任何忽略的字段都将被移除(该文档基本被重写)</p>
+<p>如果有多个文件符合条件，并且都需要修改，使用<code>$updateMany</code>和<code>$set</code>修饰符</p>
+<pre>db.media.updateMany({&quot;Title&quot; : &quot;Matrix, The&quot;}, {$set: {&quot;Type&quot; : &quot;DVD&quot;, &quot;Title&quot; : &quot;Matrix, The&quot;, &quot;Released&quot; : 1999, &quot;Genre&quot;: &quot;Action&quot; }}, {upsert: true})
+</pre>
+
+</li>
+</ul>
+<h5 id="2-4-2-使用save-命令实现upsert"><a href="#2-4-2-使用save-命令实现upsert" class="headerlink" title="2.4.2 使用save()命令实现upsert"></a><a href="#2-4-2-使用save-命令实现upsert" title="2.4.2 使用save()命令实现upsert"></a>2.4.2 使用<code>save()</code>命令实现<code>upsert</code></h5><p>可添加<code>id值</code>，手动或者自动添加该值，不指定的话，就会认为它是一个插入操作，并将文档添加到集合中</p>
+<pre><code>db.media.save({&amp;quot;Title&amp;quot; : &amp;quot;Matrix, The&amp;quot;}, {&amp;quot;Type&amp;quot; : &amp;quot;DVD&amp;quot;, &amp;quot;Title&amp;quot; : &amp;quot;Matrix, The&amp;quot;, &amp;quot;Released&amp;quot; : 1999, &amp;quot;Genre&amp;quot;: &amp;quot;Action&amp;quot;})
+</code></pre><h5 id="2-4-3-自动更新信息"><a href="#2-4-3-自动更新信息" class="headerlink" title="2.4.3 自动更新信息"></a><a href="#2-4-3-自动更新信息" title="2.4.3 自动更新信息"></a>2.4.3 自动更新信息</h5><ul>
+<li><p>使用<code>$inc</code>增加值<br>   该操作符可以为指定的键执行(原子)更新操作，如果字段存在，就将该值增加给定的增量。如果不存在，就创建。<br>   添加一个新的文档</p>
+ <pre>db.media.insertOne({&quot;Type&quot;: &quot;Manga&quot;, &quot;Title&quot;: &quot;One Piece&quot;, &quot;Volumes&quot;: 612, &quot;Read&quot;: 520})
+ </pre>
+
+<p> 假设已经阅读到One Piece漫画的4卷内容，就希望更新文档中已读册数的目录</p>
+ <pre>db.media.updateOne({&quot;Title&quot;: &quot;One Piece&quot;}, {$inc: {&quot;Read&quot;: 4}})
+ </pre></li>
+<li><p>设置字段值<code>$set</code></p>
+<p>通过该操作符将某个字段设置成特定值。下面语句将<code>Genre</code>字段的值设置成<code>Sci-Fi</code></p>
+<pre>db.media.updateOne({&quot;Title&quot;: &quot;Matrix, The&quot;}, {$set: {Genre: &quot;Sci-Fi&quot;}})
+</pre></li>
+<li><p>删除指定字段<code>$unset</code></p>
+<pre>db.media.updateOne({&quot;Title&quot;: &quot;Matrix, The&quot;}, {$unset: {Genre: 1}})</pre>
+
+</li>
+</ul>
+<h5 id="2-4-4-在指定字段中添加某个值-push"><a href="#2-4-4-在指定字段中添加某个值-push" class="headerlink" title="2.4.4 在指定字段中添加某个值$push"></a><a href="#2-4-4-在指定字段中添加某个值-push" title="2.4.4 在指定字段中添加某个值$push"></a>2.4.4 在指定字段中添加某个值<code>$push</code></h5><p>使用它可以在指定字段中添加某个字段。如果该该字段是数组，那么该值将被添加到数组，如果该字段不存在，那么该字段的值将被设置成为数组。如果该字段存在，但不是数组，则报错。</p>
+<pre><code>&lt;pre&gt;db.media.updateOne({&amp;quot;ISBN&amp;quot;: &amp;quot;987-1-4842-1183-1&amp;quot;}, {$push: {Author: &amp;quot;Griffin, Stewie&amp;quot;}})
+&lt;/pre&gt;
+</code></pre><h5 id="2-4-5-指定数组中的多个值-each"><a href="#2-4-5-指定数组中的多个值-each" class="headerlink" title="2.4.5 指定数组中的多个值$each"></a><a href="#2-4-5-指定数组中的多个值-each" title="2.4.5 指定数组中的多个值$each"></a>2.4.5 指定数组中的多个值<code>$each</code></h5><p>使用<code>$push</code>操作符可以将值添加到指定数值中，如果希望在给定数组中添加几个不同的值，可以使用<code>$each</code></p>
+<pre><code>&lt;pre&gt;db.media.updateOne({&amp;quot;ISBN&amp;quot;: &amp;quot;987-1-4842-1183-0&amp;quot;}, {$push: {Author: { $each: [&amp;quot;Griffin, Stewie&amp;quot;, &amp;quot;Griffin, Brian&amp;quot;] } } })&lt;/pre&gt;
+</code></pre><h5 id="2-4-6-从数组中删除元素-pop-pull-pullAll"><a href="#2-4-6-从数组中删除元素-pop-pull-pullAll" class="headerlink" title="2.4.6 从数组中删除元素$pop,$pull,pullAll"></a><a href="#2-4-6-从数组中删除元素-pop-pull-pullAll" title="2.4.6 从数组中删除元素$pop,$pull,pullAll"></a>2.4.6 从数组中删除元素<code>$pop</code>,<code>$pull</code>,<code>pullAll</code></h5><ul>
+<li><code>$pop</code>可从数组中删除单个元素，允许删除数组中第1个或最后一个，对应参数分别为<code>1</code>和<code>-1</code><pre>`db.media.updateOne({&quot;ISBN&quot;: &quot;987-1-4842-1183-1&quot;}, {$pop: {Author: 1 } })
+`</pre></li>
+<li>删除所有指定值<code>$pull</code><pre>`db.media.updateOne({&quot;ISBN&quot;: &quot;987-1-4842-1183-1&quot;}, {$pull: {Author: &quot;Griffin, Stewie&quot; } })
+`</pre></li>
+<li>删除数组中多个元素<code>$pullAll</code><pre>`db.media.updateOne({&quot;ISBN&quot;: &quot;987-1-4842-1183-1&quot;}, {$pullAll: {Author: [&quot;Griffin, Stewie&quot;, &quot;Griffin, Brian&quot;] } })
+`</pre>
+
+</li>
+</ul>
+<h5 id="2-4-7-以原子方式修改和返回文档findAndModify"><a href="#2-4-7-以原子方式修改和返回文档findAndModify" class="headerlink" title="2.4.7 以原子方式修改和返回文档findAndModify"></a><a href="#2-4-7-以原子方式修改和返回文档findAndModify" title="2.4.7 以原子方式修改和返回文档findAndModify"></a>2.4.7 以原子方式修改和返回文档<code>findAndModify</code></h5><pre><code>接受三个主要操作符
+</code></pre><ul>
+<li><code>&amp;lt;query&amp;gt;</code>用于指定目标文档</li>
+<li><code>&amp;lt;sort&amp;gt;</code>用于对多个匹配文档进行排序</li>
+<li><p><code>&amp;lt;operations&amp;gt;</code>用于希望执行的操作</p>
+<p>比如找到搜索的目标文档并在找到之后删除</p>
+<pre>db.media.findAndModify({&quot;Title&quot;: &quot;One Piece&quot;, sort: {&quot;Title&quot;: -1}, remove: true})</pre>
+
+<p>修改，并会返回更新之前的文档</p>
+<pre>db.media.updateOne({query: {&quot;ISBN&quot;: &quot;987-1-4842-1183-1&quot;}, sort: {&quot;Title&quot;: -1}, update: {$set: {&quot;Title&quot;: &quot;Different Title&quot;}}})</pre>
+
+<p>想要返回更新之后的文档，需要增加<code>new</code>操作符</p>
+<pre><code>db.media.updateOne({query: {&amp;quot;ISBN&amp;quot;: &amp;quot;987-1-4842-1183-1&amp;quot;}, sort: {&amp;quot;Title&amp;quot;: -1}, update: {$set: {&amp;quot;Title&amp;quot;: &amp;quot;Different Title&amp;quot;}}， new: true})
+</code></pre></li>
+</ul>
+<h4 id="2-5-删除数据"><a href="#2-5-删除数据" class="headerlink" title="2.5 删除数据"></a><a href="#2-5-删除数据" title="2.5 删除数据"></a>2.5 删除数据</h4><ul>
+<li>删除一个文档 <code>db.media.deleteOne({&amp;quot;Title&amp;quot;: &amp;quot;Different Title&amp;quot;})</code></li>
+<li>删除多个 <code>db.media.deleteMany({})</code></li>
+<li>删除整个集合 <code>db.media.drop()</code></li>
+<li>删除数据库 <code>db.dropDatabase()</code></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mongodb/" rel="tag"># mongodb</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/imgzoom插件/" rel="next" title="新手怎么检测自己的javascript能力？从写一个小插件开始">
+                <i class="fa fa-chevron-left"></i> 新手怎么检测自己的javascript能力？从写一个小插件开始
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/21/sass基本用法/" rel="prev" title="sass基本用法">
+                sass基本用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xuthus" />
+          <p class="site-author-name" itemprop="name">Xuthus</p>
+          <p class="site-description motion-element" itemprop="description">多敲代码，少睡觉</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xxxgitone" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/xxxjiang/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-介绍和安装"><span class="nav-number">1.</span> <span class="nav-text">1.介绍和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-安装"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基本用法"><span class="nav-number">2.</span> <span class="nav-text">2.基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-浏览数据库-这里以数据库library为例"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 浏览数据库(这里以数据库library为例)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-集合中插入数据"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 集合中插入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-查询数据"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-1-使用点号"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 使用点号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-2-使用函数sort，limit和skip"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 使用函数sort，limit和skip</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-3-获取单个文档"><span class="nav-number">2.3.3.</span> <span class="nav-text">2.3.3 获取单个文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-4-使用聚集命令"><span class="nav-number">2.3.4.</span> <span class="nav-text">2.3.4 使用聚集命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-5-使用条件操作符"><span class="nav-number">2.3.5.</span> <span class="nav-text">2.3.5 使用条件操作符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-6-使用正则表达式"><span class="nav-number">2.3.6.</span> <span class="nav-text">2.3.6 使用正则表达式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-更新数据"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 更新数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-1-使用update-更新"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1 使用update()更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-2-使用save-命令实现upsert"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.4.2 使用save()命令实现upsert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-3-自动更新信息"><span class="nav-number">2.4.3.</span> <span class="nav-text">2.4.3 自动更新信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-4-在指定字段中添加某个值-push"><span class="nav-number">2.4.4.</span> <span class="nav-text">2.4.4 在指定字段中添加某个值$push</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-5-指定数组中的多个值-each"><span class="nav-number">2.4.5.</span> <span class="nav-text">2.4.5 指定数组中的多个值$each</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-6-从数组中删除元素-pop-pull-pullAll"><span class="nav-number">2.4.6.</span> <span class="nav-text">2.4.6 从数组中删除元素$pop,$pull,pullAll</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-7-以原子方式修改和返回文档findAndModify"><span class="nav-number">2.4.7.</span> <span class="nav-text">2.4.7 以原子方式修改和返回文档findAndModify</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-删除数据"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 删除数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xuthus</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7H8n4Cnhy3aANup4N629ffkS-gzGzoHsz", "HNELwKjh6eJMcVJnAzrodRnm");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

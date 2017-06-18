@@ -1,0 +1,958 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,sass," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.sass介绍Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护 2. 安装(Ubuntu)Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可  安装Ruby  sudo apt-get update sudo apt-get install ruby  安装Sass">
+<meta name="keywords" content="css,sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sass基本用法">
+<meta property="og:url" content="http://yoursite.com/2017/05/21/sass基本用法/index.html">
+<meta property="og:site_name" content="Xu•thus Blog">
+<meta property="og:description" content="1.sass介绍Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护 2. 安装(Ubuntu)Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可  安装Ruby  sudo apt-get update sudo apt-get install ruby  安装Sass">
+<meta property="og:updated_time" content="2017-06-18T13:08:35.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sass基本用法">
+<meta name="twitter:description" content="1.sass介绍Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护 2. 安装(Ubuntu)Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可  安装Ruby  sudo apt-get update sudo apt-get install ruby  安装Sass">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6381005558069069000',
+      author: 'Xuthus'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/21/sass基本用法/"/>
+
+
+
+
+
+  <title> sass基本用法 | Xu•thus Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Xu•thus Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">我的成长之路</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/sass基本用法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Xuthus">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xu•thus Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xu•thus Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sass基本用法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-21T19:24:12+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/21/sass基本用法/" class="leancloud_visitors" data-flag-title="sass基本用法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-sass介绍"><a href="#1-sass介绍" class="headerlink" title="1.sass介绍"></a><a href="#1-sass介绍" title="1.sass介绍"></a>1.sass介绍</h3><p>Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护</p>
+<h3 id="2-安装-Ubuntu"><a href="#2-安装-Ubuntu" class="headerlink" title="2. 安装(Ubuntu)"></a><a href="#2-安装-Ubuntu" title="2. 安装(Ubuntu)"></a>2. 安装(Ubuntu)</h3><p>Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可</p>
+<ul>
+<li>安装<code>Ruby</code></li>
+</ul>
+<pre><code>sudo apt-get update
+sudo apt-get install ruby
+</code></pre><ul>
+<li><p>安装<code>Sass</code></p>
+<pre>sudo gem install sass</pre>
+</li>
+<li><p>编译</p>
+<p>编译有多种，可以使用<code>Sass</code>命令，可以使用在线编译，也可以使用Koala编译，还可以使用编辑器插件，我选择使用<code>sublime</code>的<code>sass-build</code>插件进行编译。</p>
+<pre>`Ctrl + b`进行编译
+</pre>
+
+<h3 id="3-基本用法"><a href="#3-基本用法" class="headerlink" title="3.基本用法"></a><a href="#3-基本用法" title="3.基本用法"></a>3.基本用法</h3><h4 id="3-1-变量"><a href="#3-1-变量" class="headerlink" title="3.1 变量"></a><a href="#3-1-变量" title="3.1 变量"></a>3.1 变量</h4><p>能够使用变量是编程语言最基本的性质，<code>Sass</code>中变量以<code>$</code>开头</p>
+<pre>$deepBlue: #032f3e;
+
+a {
+  color: $deepBlue;
+}
+</pre>
+
+<p>将变量嵌套在字符中,使用<code>#{}</code>引用</p>
+<pre>$pos: bottom;
+
+div {
+  margin-#{$pos}: 20px;
+}
+</pre>
+
+</li>
+</ul>
+<h4 id="3-2-嵌套"><a href="#3-2-嵌套" class="headerlink" title="3.2 嵌套"></a><a href="#3-2-嵌套" title="3.2 嵌套"></a>3.2 嵌套</h4><p>  Sass支持嵌套，使得结果更加清晰</p>
+  <pre>div .title {
+    color: blue;
+  }
+  </pre>
+
+<p>  上面可以写成</p>
+  <pre>div {
+
+      .title {
+        color: blue;
+      }
+
+    }
+  </pre>
+
+<p>注意：不建议嵌套过深</p>
+<h4 id="3-3-使用选择器和伪类"><a href="#3-3-使用选择器和伪类" class="headerlink" title="3.3 使用选择器和伪类"></a><a href="#3-3-使用选择器和伪类" title="3.3 使用选择器和伪类"></a>3.3 使用选择器和伪类</h4><pre><code>可以直接写在嵌套的代码块里，需要加上`&amp;amp;`用于引用父元素
+</code></pre>  <pre>a {
+
+      &amp;:hover {
+        color: blue;
+      }
+
+    }
+  </pre>
+
+<h4 id="3-4-运算"><a href="#3-4-运算" class="headerlink" title="3.4 运算"></a><a href="#3-4-运算" title="3.4 运算"></a>3.4 运算</h4><p>支持常见的运算,和<code>calc</code>功能类似</p>
+  <pre>li {
+      width: (100% / 4);
+  }
+  </pre>
+
+<h4 id="3-5-Mixin"><a href="#3-5-Mixin" class="headerlink" title="3.5 Mixin"></a><a href="#3-5-Mixin" title="3.5 Mixin"></a>3.5 Mixin</h4><p><code>mixin</code>是<code>Sass</code>中非常强大有用的功能，轻松实现代码重用</p>
+<p>编写一个清除浮动的伪类</p>
+<p><pre>@mixin clearFix {</pre></p>
+<pre><code>&amp;amp;:after {
+  content: &amp;quot;&amp;quot;;
+  display: block;
+  clear: both;
+}
+</code></pre><p>  }<br></p>
+<p>引用上面伪类</p>
+  <pre>div {
+      @include clearFix
+    }
+  </pre>
+
+<p>还可以使用参数，编写一个grid</p>
+<p>  <pre>@mixin grid($cols, $mgn) {<br>      float: left;<br>      margin-right: $mgn;<br>      margin-bottom: $mgn;<br>      width: ((100% - (($cols - 1) * $mgn)) / $cols );<br>      &amp;:nth-child(#{$cols}n) {<br>        margin-right: 0;<br>      }<br>    }<br>  </pre></p>
+<p>  引用</p>
+  <pre>li {
+      @include grid(4, 2%);
+    }
+  </pre>
+
+<h4 id="3-6-引入文件"><a href="#3-6-引入文件" class="headerlink" title="3.6 引入文件"></a><a href="#3-6-引入文件" title="3.6 引入文件"></a>3.6 引入文件</h4><p>  <pre>@import &quot;styles.scss&quot;</pre></p>
+<h4 id="3-7-媒体查询以及if语法"><a href="#3-7-媒体查询以及if语法" class="headerlink" title="3.7 媒体查询以及if语法"></a><a href="#3-7-媒体查询以及if语法" title="3.7 媒体查询以及if语法"></a>3.7 媒体查询以及if语法</h4><p>  媒体查询,<code>@content</code>为写入的内容</p>
+<p>  <pre>@mixin mediaQ($arg) {<br>      @media screen and (max-width: $arg) {<br>         @content;<br>      }<br>    }<br>  </pre></p>
+<p>  引用</p>
+  <pre>h1 {
+      font-size: 60px;
+      @include mediaQ(600px) {
+        font-size: 30px;
+      }
+    }
+  </pre>
+
+<p>  上面只支持一个参数，但是媒体查询还有两个参数的情况，使用<code>if</code>语句判断</p>
+<p>  <pre>@mixin mediaQ($arg…) {<br>      @if length($arg) == 1 {<br>        @media screen and (max-width: nth($arg, 1)) {<br>           @content;<br>        }<br>      }</pre></p>
+<pre><code>  @if length($arg) == 2 {
+     @media screen and (max-width: nth($arg, 1)) and (min-width: nth($arg, 2)) {
+       @content;
+     }
+  }
+}
+</code></pre><p>  </p>
+<p>  引用</p>
+  <pre>h1 {
+      font-size: 60px;
+      @include mediaQ(1200px，600px) {
+        font-size: 30px;
+      }
+    }
+  </pre>
+
+<h4 id="3-8-内置颜色处理函数"><a href="#3-8-内置颜色处理函数" class="headerlink" title="3.8 内置颜色处理函数"></a><a href="#3-8-内置颜色处理函数" title="3.8 内置颜色处理函数"></a>3.8 内置颜色处理函数</h4><pre><code>color: lighten($deepBlue, 6)；
+color: complement($deepBlue);
+</code></pre><h4 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a><a href="#更多用法" title="更多用法"></a>更多用法</h4><p><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="external">中文</a><br><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank" rel="external">English</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/sass/" rel="tag"># sass</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/20/mongodb安装-Windows和Ubuntu-以及mongodb基本用法/" rel="next" title="mongodb安装(Windows和Ubuntu)以及mongodb基本用法">
+                <i class="fa fa-chevron-left"></i> mongodb安装(Windows和Ubuntu)以及mongodb基本用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/25/Git常用操作及命令/" rel="prev" title="Git常用操作及命令">
+                Git常用操作及命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xuthus" />
+          <p class="site-author-name" itemprop="name">Xuthus</p>
+          <p class="site-description motion-element" itemprop="description">多敲代码，少睡觉</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xxxgitone" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/xxxjiang/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sass介绍"><span class="nav-number">1.</span> <span class="nav-text">1.sass介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装-Ubuntu"><span class="nav-number">2.</span> <span class="nav-text">2. 安装(Ubuntu)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-基本用法"><span class="nav-number">3.</span> <span class="nav-text">3.基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-变量"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-嵌套"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-使用选择器和伪类"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 使用选择器和伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-运算"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-Mixin"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 Mixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-引入文件"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 引入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-媒体查询以及if语法"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 媒体查询以及if语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-内置颜色处理函数"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 内置颜色处理函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多用法"><span class="nav-number">3.9.</span> <span class="nav-text">更多用法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xuthus</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7H8n4Cnhy3aANup4N629ffkS-gzGzoHsz", "HNELwKjh6eJMcVJnAzrodRnm");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
