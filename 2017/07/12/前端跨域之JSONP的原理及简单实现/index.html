@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,SASS," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="1.sass介绍Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护 2. 安装(Ubuntu)Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可  安装Ruby  sudo apt-get update sudo apt-get install ruby  安装Sass">
-<meta name="keywords" content="CSS,SASS">
+<meta name="description" content="在前端开发中，熟练使用ajax从后台接口获取数据是必备的技能。但是为了安全，XmlHttpRequest对象在默认情况下只能访问同源（协议、域名、端口号完全相同）的数据，就是常说的跨域安全策略。在前后端分离的今天，合理跨域至关重要，所以在前端也有很多方法可以实现跨域，比较常用的是JSONP和CORS，当然还有nodejs配合webpack可以实现http代理来达到跨域效果，这个也比较常用。 我们先">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sass基本用法">
-<meta property="og:url" content="http://yoursite.com/2017/05/21/sass基本用法/index.html">
+<meta property="og:title" content="前端跨域之JSONP的原理及简单实现">
+<meta property="og:url" content="http://yoursite.com/2017/07/12/前端跨域之JSONP的原理及简单实现/index.html">
 <meta property="og:site_name" content="Xu•thus Blog">
-<meta property="og:description" content="1.sass介绍Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护 2. 安装(Ubuntu)Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可  安装Ruby  sudo apt-get update sudo apt-get install ruby  安装Sass">
-<meta property="og:updated_time" content="2017-07-09T10:17:41.568Z">
+<meta property="og:description" content="在前端开发中，熟练使用ajax从后台接口获取数据是必备的技能。但是为了安全，XmlHttpRequest对象在默认情况下只能访问同源（协议、域名、端口号完全相同）的数据，就是常说的跨域安全策略。在前后端分离的今天，合理跨域至关重要，所以在前端也有很多方法可以实现跨域，比较常用的是JSONP和CORS，当然还有nodejs配合webpack可以实现http代理来达到跨域效果，这个也比较常用。 我们先">
+<meta property="og:updated_time" content="2017-07-13T11:32:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sass基本用法">
-<meta name="twitter:description" content="1.sass介绍Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护 2. 安装(Ubuntu)Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可  安装Ruby  sudo apt-get update sudo apt-get install ruby  安装Sass">
+<meta name="twitter:title" content="前端跨域之JSONP的原理及简单实现">
+<meta name="twitter:description" content="在前端开发中，熟练使用ajax从后台接口获取数据是必备的技能。但是为了安全，XmlHttpRequest对象在默认情况下只能访问同源（协议、域名、端口号完全相同）的数据，就是常说的跨域安全策略。在前后端分离的今天，合理跨域至关重要，所以在前端也有很多方法可以实现跨域，比较常用的是JSONP和CORS，当然还有nodejs配合webpack可以实现http代理来达到跨域效果，这个也比较常用。 我们先">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/21/sass基本用法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/12/前端跨域之JSONP的原理及简单实现/"/>
 
 
 
 
 
-  <title> sass基本用法 | Xu•thus Blog </title>
+  <title> 前端跨域之JSONP的原理及简单实现 | Xu•thus Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/sass基本用法/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/前端跨域之JSONP的原理及简单实现/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Xuthus">
@@ -283,7 +283,7 @@
             
             
               
-                sass基本用法
+                前端跨域之JSONP的原理及简单实现
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-21T19:24:12+08:00">
-                2017-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-12T22:01:47+08:00">
+                2017-07-12
               </time>
             
 
@@ -340,7 +340,7 @@
 
           
           
-             <span id="/2017/05/21/sass基本用法/" class="leancloud_visitors" data-flag-title="sass基本用法">
+             <span id="/2017/07/12/前端跨域之JSONP的原理及简单实现/" class="leancloud_visitors" data-flag-title="前端跨域之JSONP的原理及简单实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -367,129 +367,32 @@
       
 
       
-        <h3 id="1-sass介绍"><a href="#1-sass介绍" class="headerlink" title="1.sass介绍"></a><a href="#1-sass介绍" title="1.sass介绍"></a>1.sass介绍</h3><p>Sass 是一种比较流行的”CSS预处理器”, 是对 CSS 的扩展，让 CSS 语言更强大、优雅。 使得CSS像一门编程语言，编写起来更加高效，易于维护</p>
-<h3 id="2-安装-Ubuntu"><a href="#2-安装-Ubuntu" class="headerlink" title="2. 安装(Ubuntu)"></a><a href="#2-安装-Ubuntu" title="2. 安装(Ubuntu)"></a>2. 安装(Ubuntu)</h3><p>Sass是Ruby语言写的，但是并不需要懂得Ruby，只需要安装Ruby即可</p>
-<ul>
-<li>安装<code>Ruby</code></li>
-</ul>
-<pre><code>sudo apt-get update
-sudo apt-get install ruby
-</code></pre><ul>
-<li><p>安装<code>Sass</code></p>
-<pre>sudo gem install sass</pre>
-</li>
-<li><p>编译</p>
-<p>编译有多种，可以使用<code>Sass</code>命令，可以使用在线编译，也可以使用Koala编译，还可以使用编辑器插件，我选择使用<code>sublime</code>的<code>sass-build</code>插件进行编译。</p>
-<pre>`Ctrl + b`进行编译
-</pre>
+        <p>在前端开发中，熟练使用ajax从后台接口获取数据是必备的技能。但是为了安全，XmlHttpRequest对象在默认情况下只能访问同源（协议、域名、端口号完全相同）的数据，就是常说的跨域安全策略。在前后端分离的今天，合理跨域至关重要，所以在前端也有很多方法可以实现跨域，比较常用的是JSONP和CORS，当然还有nodejs配合webpack可以实现http代理来达到跨域效果，这个也比较常用。</p>
+<p>我们先来用nodejs来起一个简单的服务，当请求为<code>http://localhost:3000/user</code>返回一个json数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</div><div class="line"></div><div class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> data = &#123; <span class="attr">name</span>: <span class="string">'Xuthus'</span> &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (req.url === <span class="string">'/user'</span>) &#123;</div><div class="line">        res.end(<span class="built_in">JSON</span>.stringify(data))</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        res.end(<span class="string">'hello world'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">3000</span>)</div></pre></td></tr></table></figure>
+<p>客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">type, url， data</span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</div><div class="line">            <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status === <span class="number">304</span>) &#123;</div><div class="line">                <span class="built_in">console</span>.log(xhr.responseText)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="built_in">console</span>.log(xhr.status)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    xhr.open(type, url, <span class="literal">true</span>)</div><div class="line">    xhr.send(data)</div><div class="line">&#125;</div><div class="line"></div><div class="line">request(<span class="string">'get'</span>, <span class="string">'http://localhost:3000/user'</span>, <span class="literal">null</span>)</div></pre></td></tr></table></figure>
+<p>执行后，就会出现报错，就是同源限制造成的</p>
 
-<h3 id="3-基本用法"><a href="#3-基本用法" class="headerlink" title="3.基本用法"></a><a href="#3-基本用法" title="3.基本用法"></a>3.基本用法</h3><h4 id="3-1-变量"><a href="#3-1-变量" class="headerlink" title="3.1 变量"></a><a href="#3-1-变量" title="3.1 变量"></a>3.1 变量</h4><p>能够使用变量是编程语言最基本的性质，<code>Sass</code>中变量以<code>$</code>开头</p>
-<pre>$deepBlue: #032f3e;
-
-a {
-  color: $deepBlue;
-}
-</pre>
-
-<p>将变量嵌套在字符中,使用<code>#{}</code>引用</p>
-<pre>$pos: bottom;
-
-div {
-  margin-#{$pos}: 20px;
-}
-</pre>
-
-</li>
-</ul>
-<h4 id="3-2-嵌套"><a href="#3-2-嵌套" class="headerlink" title="3.2 嵌套"></a><a href="#3-2-嵌套" title="3.2 嵌套"></a>3.2 嵌套</h4><p>  Sass支持嵌套，使得结果更加清晰</p>
-  <pre>div .title {
-    color: blue;
-  }
-  </pre>
-
-<p>  上面可以写成</p>
-  <pre>div {
-
-      .title {
-        color: blue;
-      }
-
-    }
-  </pre>
-
-<p>注意：不建议嵌套过深</p>
-<h4 id="3-3-使用选择器和伪类"><a href="#3-3-使用选择器和伪类" class="headerlink" title="3.3 使用选择器和伪类"></a><a href="#3-3-使用选择器和伪类" title="3.3 使用选择器和伪类"></a>3.3 使用选择器和伪类</h4><pre><code>可以直接写在嵌套的代码块里，需要加上`&amp;amp;`用于引用父元素
-</code></pre>  <pre>a {
-
-      &amp;:hover {
-        color: blue;
-      }
-
-    }
-  </pre>
-
-<h4 id="3-4-运算"><a href="#3-4-运算" class="headerlink" title="3.4 运算"></a><a href="#3-4-运算" title="3.4 运算"></a>3.4 运算</h4><p>支持常见的运算,和<code>calc</code>功能类似</p>
-  <pre>li {
-      width: (100% / 4);
-  }
-  </pre>
-
-<h4 id="3-5-Mixin"><a href="#3-5-Mixin" class="headerlink" title="3.5 Mixin"></a><a href="#3-5-Mixin" title="3.5 Mixin"></a>3.5 Mixin</h4><p><code>mixin</code>是<code>Sass</code>中非常强大有用的功能，轻松实现代码重用</p>
-<p>编写一个清除浮动的伪类</p>
-<p><pre>@mixin clearFix {</pre></p>
-<pre><code>&amp;amp;:after {
-  content: &amp;quot;&amp;quot;;
-  display: block;
-  clear: both;
-}
-</code></pre><p>  }<br></p>
-<p>引用上面伪类</p>
-  <pre>div {
-      @include clearFix
-    }
-  </pre>
-
-<p>还可以使用参数，编写一个grid</p>
-<p>  <pre>@mixin grid($cols, $mgn) {<br>      float: left;<br>      margin-right: $mgn;<br>      margin-bottom: $mgn;<br>      width: ((100% - (($cols - 1) * $mgn)) / $cols );<br>      &amp;:nth-child(#{$cols}n) {<br>        margin-right: 0;<br>      }<br>    }<br>  </pre></p>
-<p>  引用</p>
-  <pre>li {
-      @include grid(4, 2%);
-    }
-  </pre>
-
-<h4 id="3-6-引入文件"><a href="#3-6-引入文件" class="headerlink" title="3.6 引入文件"></a><a href="#3-6-引入文件" title="3.6 引入文件"></a>3.6 引入文件</h4><p>  <pre>@import &quot;styles.scss&quot;</pre></p>
-<h4 id="3-7-媒体查询以及if语法"><a href="#3-7-媒体查询以及if语法" class="headerlink" title="3.7 媒体查询以及if语法"></a><a href="#3-7-媒体查询以及if语法" title="3.7 媒体查询以及if语法"></a>3.7 媒体查询以及if语法</h4><p>  媒体查询,<code>@content</code>为写入的内容</p>
-<p>  <pre>@mixin mediaQ($arg) {<br>      @media screen and (max-width: $arg) {<br>         @content;<br>      }<br>    }<br>  </pre></p>
-<p>  引用</p>
-  <pre>h1 {
-      font-size: 60px;
-      @include mediaQ(600px) {
-        font-size: 30px;
-      }
-    }
-  </pre>
-
-<p>  上面只支持一个参数，但是媒体查询还有两个参数的情况，使用<code>if</code>语句判断</p>
-<p>  <pre>@mixin mediaQ($arg…) {<br>      @if length($arg) == 1 {<br>        @media screen and (max-width: nth($arg, 1)) {<br>           @content;<br>        }<br>      }</pre></p>
-<pre><code>  @if length($arg) == 2 {
-     @media screen and (max-width: nth($arg, 1)) and (min-width: nth($arg, 2)) {
-       @content;
-     }
-  }
-}
-</code></pre><p>  </p>
-<p>  引用</p>
-  <pre>h1 {
-      font-size: 60px;
-      @include mediaQ(1200px，600px) {
-        font-size: 30px;
-      }
-    }
-  </pre>
-
-<h4 id="3-8-内置颜色处理函数"><a href="#3-8-内置颜色处理函数" class="headerlink" title="3.8 内置颜色处理函数"></a><a href="#3-8-内置颜色处理函数" title="3.8 内置颜色处理函数"></a>3.8 内置颜色处理函数</h4><pre><code>color: lighten($deepBlue, 6)；
-color: complement($deepBlue);
-</code></pre><h4 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a><a href="#更多用法" title="更多用法"></a>更多用法</h4><p><a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank" rel="external">中文</a><br><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank" rel="external">English</a></p>
+<h3 id="JSONP实现原理"><a href="#JSONP实现原理" class="headerlink" title="JSONP实现原理"></a>JSONP实现原理</h3><p>JSONP是JSON with padding(填充式JSON或参数式JSON)的简写，是应用JSON的一种方式。</p>
+<p>JSONP的实现原理很简单，利用<code>&lt;script&gt;</code>标签没有同源限制的特点，也就是<code>&lt;script&gt;</code>的src链接可以访问不同源的。不受同源限制的还有<code>&lt;img&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;link&gt;</code>,对应这两个标签实现的跨域方法也有，比如图片ping等。</p>
+<p>我们访问服务端，一般是获取存JSON数据，而JSONP则返回的是，包含函数的数据,将我们需要的JSON数据作为函数的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">callback(&#123;<span class="string">"name"</span>: <span class="string">"xuthus"</span>&#125;</div></pre></td></tr></table></figure>
+<p>我们在客户端则一般通过<code>&lt;script&gt;</code>标签的src访问带有callback查询参数的请求，来获取返回带有函数的数据，然后执行它</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">jsonpCb</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(result)</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://localhost:3000/user?callback=jsonpCb"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我们先定义了回调函数<code>jsonpCb</code>，然后通过另外一个<code>&lt;script&gt;</code>标签获取数据，返回</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jsonpCb(&#123;<span class="string">"name"</span>: <span class="string">"xuthus"</span>&#125;)</div></pre></td></tr></table></figure>
+<p>返回后就会执行这个这个函数，就可以得到我们想要的json数据了</p>
+<p>我们来模拟一下</p>
+<p>客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</div><div class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</div><div class="line"></div><div class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">const</span> data = &#123;<span class="attr">name</span>: <span class="string">'uthus'</span>&#125;</div><div class="line">    <span class="comment">// 获取查询参数callback，就是我们在客户端定义的jsonpCb</span></div><div class="line">    <span class="keyword">const</span> callback = url.parse(req.url, <span class="literal">true</span>).query.callback</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (callback) &#123;</div><div class="line">        <span class="keyword">const</span> str = callback + <span class="string">'('</span> + <span class="built_in">JSON</span>.stringify(data) + <span class="string">')'</span></div><div class="line">        <span class="comment">// 以字符串的形式返回</span></div><div class="line">        res.end(str)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        res.end(<span class="string">'hello world'</span>)</div><div class="line">    &#125;  </div><div class="line">&#125;).listen(<span class="number">3000</span>)</div></pre></td></tr></table></figure>
+<p>客户端就是我们前面所定义的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">jsonpCb</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(result)</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://localhost:3000/user?callback=jsonpCb"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我们开启本地服务直接在浏览器输入<code>http://localhost:3000/user?callback=jsonpCb</code>，可以看到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">jsonpCb(&#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"Xuthus"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>执行客户端html文件，可以看到输出结果，随后就可以操作他们了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span> &#123;<span class="attr">name</span>: <span class="string">"Xuthus"</span>&#125;</div></pre></td></tr></table></figure>
+<p>补充：JSONP可以兼容老版的浏览器，但是只能发送get请求。</p>
 
       
     </div>
@@ -513,9 +416,7 @@ color: complement($deepBlue);
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-            <a href="/tags/SASS/" rel="tag"># SASS</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -524,8 +425,8 @@ color: complement($deepBlue);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/20/mongodb安装-Windows和Ubuntu-以及mongodb基本用法/" rel="next" title="mongodb安装(Windows和Ubuntu)以及mongodb基本用法">
-                <i class="fa fa-chevron-left"></i> mongodb安装(Windows和Ubuntu)以及mongodb基本用法
+              <a href="/2017/07/02/Array-类型方法大合集/" rel="next" title="Array 类型方法大合集">
+                <i class="fa fa-chevron-left"></i> Array 类型方法大合集
               </a>
             
           </div>
@@ -533,10 +434,6 @@ color: complement($deepBlue);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/25/Git常用操作及命令/" rel="prev" title="Git常用操作及命令">
-                Git常用操作及命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -679,7 +576,7 @@ color: complement($deepBlue);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sass介绍"><span class="nav-number">1.</span> <span class="nav-text">1.sass介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装-Ubuntu"><span class="nav-number">2.</span> <span class="nav-text">2. 安装(Ubuntu)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-基本用法"><span class="nav-number">3.</span> <span class="nav-text">3.基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-变量"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-嵌套"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-使用选择器和伪类"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 使用选择器和伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-运算"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-Mixin"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 Mixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-引入文件"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 引入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-媒体查询以及if语法"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 媒体查询以及if语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-内置颜色处理函数"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 内置颜色处理函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多用法"><span class="nav-number">3.9.</span> <span class="nav-text">更多用法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP实现原理"><span class="nav-number">1.</span> <span class="nav-text">JSONP实现原理</span></a></li></ol></div>
             
 
           </div>
