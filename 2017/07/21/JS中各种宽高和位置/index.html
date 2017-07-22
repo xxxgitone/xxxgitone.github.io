@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,Vue.js," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -102,21 +102,21 @@
 
 
 
-<meta name="description" content="前言学了一段时间的Vue.js，用起来感觉很顺手，于是用vue全家桶写了这个简单的项目，加以巩固自家的知识以及发现自己的不足。 由于是第一次分享代码，自己也没有什么项目经验，希望有大神可以指点一二，也希望通过这个项目给新人一点启发，共同进步。 功能介绍 主要是通过获取hacker-news的api来实现数据的展示，当然只是简单的处理，没有深入。 新闻的点赞，隐藏 评论的展示 本地存储实现简单登录，">
-<meta name="keywords" content="JavaScript,Vue.js">
+<meta name="description" content="在获取窗口或元素的大小和位置信息的时候，经常会被这些属性弄懵，于是整理了一下这些方法或属性，方便查看 窗口的位置和大小位置 screenLeft 和 screenX：用于表示窗口相对于屏幕左边的位置，大部分浏览器都支持前者，火狐只支持后者 screenTop 和 screenY ： 用于表示窗口相对于屏幕上边的位置，大部分浏览器都支持前者，火狐只支持后者   兼容   12const leftPo">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue全家桶新手入门项目，简易版hacker-news">
-<meta property="og:url" content="http://yoursite.com/2017/03/19/hacker-news-info/index.html">
+<meta property="og:title" content="JS中各种宽高和位置">
+<meta property="og:url" content="http://yoursite.com/2017/07/21/JS中各种宽高和位置/index.html">
 <meta property="og:site_name" content="Xu•thus Blog">
-<meta property="og:description" content="前言学了一段时间的Vue.js，用起来感觉很顺手，于是用vue全家桶写了这个简单的项目，加以巩固自家的知识以及发现自己的不足。 由于是第一次分享代码，自己也没有什么项目经验，希望有大神可以指点一二，也希望通过这个项目给新人一点启发，共同进步。 功能介绍 主要是通过获取hacker-news的api来实现数据的展示，当然只是简单的处理，没有深入。 新闻的点赞，隐藏 评论的展示 本地存储实现简单登录，">
-<meta property="og:image" content="http://yoursite.com/2017/03/19/hacker-news-info/1.gif">
-<meta property="og:image" content="http://yoursite.com/2017/03/19/hacker-news-info/2.gif">
-<meta property="og:image" content="http://yoursite.com/2017/03/19/hacker-news-info/3.gif">
-<meta property="og:updated_time" content="2017-07-09T10:17:19.192Z">
+<meta property="og:description" content="在获取窗口或元素的大小和位置信息的时候，经常会被这些属性弄懵，于是整理了一下这些方法或属性，方便查看 窗口的位置和大小位置 screenLeft 和 screenX：用于表示窗口相对于屏幕左边的位置，大部分浏览器都支持前者，火狐只支持后者 screenTop 和 screenY ： 用于表示窗口相对于屏幕上边的位置，大部分浏览器都支持前者，火狐只支持后者   兼容   12const leftPo">
+<meta property="og:image" content="http://yoursite.com/2017/07/21/JS中各种宽高和位置/01.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/21/JS中各种宽高和位置/02.png">
+<meta property="og:image" content="http://yoursite.com/2017/07/21/JS中各种宽高和位置/03.png">
+<meta property="og:updated_time" content="2017-07-22T03:07:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue全家桶新手入门项目，简易版hacker-news">
-<meta name="twitter:description" content="前言学了一段时间的Vue.js，用起来感觉很顺手，于是用vue全家桶写了这个简单的项目，加以巩固自家的知识以及发现自己的不足。 由于是第一次分享代码，自己也没有什么项目经验，希望有大神可以指点一二，也希望通过这个项目给新人一点启发，共同进步。 功能介绍 主要是通过获取hacker-news的api来实现数据的展示，当然只是简单的处理，没有深入。 新闻的点赞，隐藏 评论的展示 本地存储实现简单登录，">
-<meta name="twitter:image" content="http://yoursite.com/2017/03/19/hacker-news-info/1.gif">
+<meta name="twitter:title" content="JS中各种宽高和位置">
+<meta name="twitter:description" content="在获取窗口或元素的大小和位置信息的时候，经常会被这些属性弄懵，于是整理了一下这些方法或属性，方便查看 窗口的位置和大小位置 screenLeft 和 screenX：用于表示窗口相对于屏幕左边的位置，大部分浏览器都支持前者，火狐只支持后者 screenTop 和 screenY ： 用于表示窗口相对于屏幕上边的位置，大部分浏览器都支持前者，火狐只支持后者   兼容   12const leftPo">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/21/JS中各种宽高和位置/01.png">
 
 
 
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/19/hacker-news-info/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/21/JS中各种宽高和位置/"/>
 
 
 
 
 
-  <title> Vue全家桶新手入门项目，简易版hacker-news | Xu•thus Blog </title>
+  <title> JS中各种宽高和位置 | Xu•thus Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/hacker-news-info/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/JS中各种宽高和位置/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Xuthus">
@@ -287,7 +287,7 @@
             
             
               
-                Vue全家桶新手入门项目，简易版hacker-news
+                JS中各种宽高和位置
               
             
           </h1>
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-19T10:00:22+08:00">
-                2017-03-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T09:48:10+08:00">
+                2017-07-21
               </time>
             
 
@@ -344,7 +344,7 @@
 
           
           
-             <span id="/2017/03/19/hacker-news-info/" class="leancloud_visitors" data-flag-title="Vue全家桶新手入门项目，简易版hacker-news">
+             <span id="/2017/07/21/JS中各种宽高和位置/" class="leancloud_visitors" data-flag-title="JS中各种宽高和位置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -371,19 +371,59 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学了一段时间的Vue.js，用起来感觉很顺手，于是用vue全家桶写了这个简单的项目，加以巩固自家的知识以及发现自己的不足。</p>
-<p>由于是第一次分享代码，自己也没有什么项目经验，希望有大神可以指点一二，也希望通过这个项目给新人一点启发，共同进步。</p>
-<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><ul>
-<li>主要是通过获取hacker-news的api来实现数据的展示，当然只是简单的处理，没有深入。</li>
-<li>新闻的点赞，隐藏</li>
-<li>评论的展示</li>
-<li>本地存储实现简单登录，主要是为了体验在vuex下的数据双向绑定</li>
-<li>还有些功能没有做，比如查询等。用到了Vue的很多基础的常用方法来编写代码，代码可能不会很优美，但也是用我现在最大能力去编写的。</li>
+        <p>在获取窗口或元素的大小和位置信息的时候，经常会被这些属性弄懵，于是整理了一下这些方法或属性，方便查看</p>
+<h3 id="窗口的位置和大小"><a href="#窗口的位置和大小" class="headerlink" title="窗口的位置和大小"></a>窗口的位置和大小</h3><h4 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h4><ul>
+<li><code>screenLeft</code> 和 <code>screenX</code>：用于表示窗口相对于屏幕左边的位置，大部分浏览器都支持前者，火狐只支持后者</li>
+<li><p><code>screenTop</code> 和 <code>screenY</code> ： 用于表示窗口相对于屏幕上边的位置，大部分浏览器都支持前者，火狐只支持后者</p>
+<p>  兼容</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> leftPos = (<span class="keyword">typeof</span> <span class="built_in">window</span>.screenLeft === <span class="string">'number'</span>) ? <span class="built_in">window</span>.screenLeft : <span class="built_in">window</span>.screenX</div><div class="line"><span class="keyword">const</span> topPos = (<span class="keyword">typeof</span> <span class="built_in">window</span>.screenTop === <span class="string">'number'</span>) ? <span class="built_in">window</span>.screenTop : <span class="built_in">window</span>.screenY</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><img src="/2017/03/19/hacker-news-info/1.gif" alt="界面展示" title="界面展示">
-<img src="/2017/03/19/hacker-news-info/2.gif" alt="评论" title="评论">
-<img src="/2017/03/19/hacker-news-info/3.gif" alt="简单登录" title="简单登录">
-<h2 id="更多详情"><a href="#更多详情" class="headerlink" title="更多详情"></a>更多详情</h2><p>github地址：<a href="https://github.com/xxxgitone/hacker-news" target="_blank" rel="external">源代码</a></p>
+<h4 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h4><ul>
+<li><code>innerWidth</code> 窗口宽度</li>
+<li><code>innerHeight</code> 窗口高度</li>
+</ul>
+<p>这两个属性主流浏览器都支持，IE9+也支持，IE8需要通过DOM来获取，即<code>document.documentElement.clientWidth</code>和<code>document.documentElement.clientHeight</code></p>
+<h3 id="元素的大小"><a href="#元素的大小" class="headerlink" title="元素的大小"></a>元素的大小</h3><h4 id="偏移量"><a href="#偏移量" class="headerlink" title="偏移量"></a>偏移量</h4><ul>
+<li><code>offsetHeight</code> 元素在垂直方向上占用的空间大小，以像素计。包括元素的高度、(可见的)水平滚动条的高度、上边框和下边框高度</li>
+<li><code>offsetWidth</code> 元素在水平方向上占用的空间大小，以像素计。包括元素的宽度、(可见的)垂直滚动条宽度、左边框和右边框的宽度</li>
+<li><code>offsetLeft</code> 元素的左边框至包含元素的左内边框之间的像素距离</li>
+<li><code>offsetTop</code> 元素的上边框至包含元素的上内边框之间的像素距离</li>
+</ul>
+<p>其中<code>offsetLeft</code>和<code>offsetTop</code>属性与包含元素有关，包含元素的引用保存在<code>offsetParent</code>属性中。<code>offsetParent</code>不一定和<code>parentNode</code>的值相等</p>
+<p>比如<code>&lt;td&gt;</code>元素的<code>offetParent</code>是作为祖先元素的<code>&lt;table&gt;</code>元素，因为<code>&lt;table&gt;</code>是在DOM层次中距<code>&lt;td&gt;</code>最近的一个具有大小的元素</p>
+<img src="/2017/07/21/JS中各种宽高和位置/01.png" alt="01.png" title="">
+<p>要想准确知道元素在页面的偏移量，需要将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，如此循环直至根元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span> (<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> actualLeft = element.offsetLeft</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</div><div class="line">        actualLeft += current.offsetLeft</div><div class="line">        current = current.offsetParent</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> actualLeft</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span> (<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> actualTop = element.offsetTop</div><div class="line">    <span class="keyword">var</span> current = element.offsetParent</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</div><div class="line">        actualTop += current.offsetTop</div><div class="line">        current = current.offsetParent</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> actualTop</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="客户区大小"><a href="#客户区大小" class="headerlink" title="客户区大小"></a>客户区大小</h4><p>客户区大小指的是元素内容及内边距所占据的空间大小</p>
+<ul>
+<li><code>clientWidth</code> 元素内容区宽度加上左右内边距宽度</li>
+<li><code>clientHeight</code> 元素内容区高度加上上下内边距高度</li>
+</ul>
+<img src="/2017/07/21/JS中各种宽高和位置/02.png" alt="02.png" title="">
+<h4 id="滚动大小"><a href="#滚动大小" class="headerlink" title="滚动大小"></a>滚动大小</h4><ul>
+<li><code>scrollHeight</code> 在没有滚动条的情况下，元素内容的总高度</li>
+<li><code>scrollWidth</code> 在没有滚动条的情况下，元素内容的总宽度</li>
+<li><code>scrollLeft</code> 被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置</li>
+<li><p><code>scrollTop</code> 被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置</p>
+<p>  <code>scrollHeight</code>和<code>scrollWidth</code>主要同于确定元素内容的实际大小。因此带有垂直滚动条的页面总高度就是<code>document.documentElement.scrollHeight</code></p>
+  <img src="/2017/07/21/JS中各种宽高和位置/03.png" alt="03.png" title="">
+</li>
+</ul>
+<h4 id="确定元素大小"><a href="#确定元素大小" class="headerlink" title="确定元素大小"></a>确定元素大小</h4><p>主要就是调用<code>getBoundingClientRect()</code>方法，这个方法返回一个矩形对象，包含六个属性，除了left、top、right和bottom，还包含自身的width和height</p>
+<h3 id="事件event对象相关坐标位置"><a href="#事件event对象相关坐标位置" class="headerlink" title="事件event对象相关坐标位置"></a>事件event对象相关坐标位置</h3><h4 id="客户区坐标位置"><a href="#客户区坐标位置" class="headerlink" title="客户区坐标位置"></a>客户区坐标位置</h4><ul>
+<li><code>clientX</code> 表示事件发生事鼠标指针在视口中的水平坐标</li>
+<li><code>clientY</code> 表示事件发生事鼠标指针在视口中的垂直坐标</li>
+</ul>
+<h4 id="页面坐标位置"><a href="#页面坐标位置" class="headerlink" title="页面坐标位置"></a>页面坐标位置</h4><ul>
+<li><code>pageX</code> 表示鼠标光标在页面中的水平位置</li>
+<li><code>pageY</code> 表示鼠标光标在页面中的垂直位置</li>
+</ul>
+<p>在没有滚动条的时候，pageX和pageY的值与clientX和clientY的值相同，IE8及之前的版本不支持这两个属性</p>
+<h4 id="屏幕坐标位置"><a href="#屏幕坐标位置" class="headerlink" title="屏幕坐标位置"></a>屏幕坐标位置</h4><ul>
+<li><code>screenX</code> 表示事件发生时鼠标指针在整个屏幕的水平位置</li>
+<li><code>screenY</code> 表示事件发生时鼠标指针在整个屏幕的垂直位置</li>
+</ul>
 
       
     </div>
@@ -409,8 +449,6 @@
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
-            <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
-          
         </div>
       
 
@@ -418,15 +456,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/12/前端跨域之JSONP的原理及简单实现/" rel="next" title="前端跨域之JSONP的原理及简单实现">
+                <i class="fa fa-chevron-left"></i> 前端跨域之JSONP的原理及简单实现
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/24/bg-border/" rel="prev" title="CSS技巧（一）：背景与边框">
-                CSS技巧（一）：背景与边框 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能介绍"><span class="nav-number">2.</span> <span class="nav-text">功能介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-number">3.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多详情"><span class="nav-number">4.</span> <span class="nav-text">更多详情</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口的位置和大小"><span class="nav-number">1.</span> <span class="nav-text">窗口的位置和大小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#位置"><span class="nav-number">1.1.</span> <span class="nav-text">位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大小"><span class="nav-number">1.2.</span> <span class="nav-text">大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素的大小"><span class="nav-number">2.</span> <span class="nav-text">元素的大小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#偏移量"><span class="nav-number">2.1.</span> <span class="nav-text">偏移量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户区大小"><span class="nav-number">2.2.</span> <span class="nav-text">客户区大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动大小"><span class="nav-number">2.3.</span> <span class="nav-text">滚动大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确定元素大小"><span class="nav-number">2.4.</span> <span class="nav-text">确定元素大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件event对象相关坐标位置"><span class="nav-number">3.</span> <span class="nav-text">事件event对象相关坐标位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#客户区坐标位置"><span class="nav-number">3.1.</span> <span class="nav-text">客户区坐标位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#页面坐标位置"><span class="nav-number">3.2.</span> <span class="nav-text">页面坐标位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕坐标位置"><span class="nav-number">3.3.</span> <span class="nav-text">屏幕坐标位置</span></a></li></ol></li></ol></div>
             
 
           </div>
