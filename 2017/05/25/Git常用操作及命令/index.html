@@ -109,7 +109,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/25/Git常用操作及命令/index.html">
 <meta property="og:site_name" content="Xu•thus Blog">
 <meta property="og:description" content="1. Git介绍Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。全球最大的同性交友网站github则是项目的托管平台，只支持Git作为唯一的版本库格式进行托管。 安装git非常简单，在ubuntu上sudo apt-get install git然后配置 2. 版本库操作2.1 创建版本库创建版本库如下命令 git init 添加文件到版本库 git add">
-<meta property="og:updated_time" content="2017-06-20T00:15:43.797Z">
+<meta property="og:updated_time" content="2017-08-06T06:34:40.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用操作及命令">
 <meta name="twitter:description" content="1. Git介绍Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。全球最大的同性交友网站github则是项目的托管平台，只支持Git作为唯一的版本库格式进行托管。 安装git非常简单，在ubuntu上sudo apt-get install git然后配置 2. 版本库操作2.1 创建版本库创建版本库如下命令 git init 添加文件到版本库 git add">
@@ -437,6 +437,11 @@
 <p>以后就可以直接使用下面命令推送了</p>
 <pre>git push origin master</pre>
 
+<blockquote>
+<p>注意：我们在新建github项目的时候，有时候会默认生成一些文件，比如<code>readme</code>和<code>.gitignore</code>,这个时候直接将本地仓库push进去，便会发生冲突</p>
+</blockquote>
+<p>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#获取云端代码</span></div><div class="line">git fetch</div><div class="line"></div><div class="line"><span class="comment">#合并</span></div><div class="line">git merge origin/master</div><div class="line"></div><div class="line"><span class="comment">#再次提交</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
 <h3 id="4-分支管理（git中非常强大又有用的功能）"><a href="#4-分支管理（git中非常强大又有用的功能）" class="headerlink" title="4. 分支管理（git中非常强大又有用的功能）"></a><a href="#4-分支管理（git中非常强大又有用的功能）" title="4. 分支管理（git中非常强大又有用的功能）"></a>4. 分支管理（git中非常强大又有用的功能）</h3><h4 id="4-1-创建与合并分支"><a href="#4-1-创建与合并分支" class="headerlink" title="4.1 创建与合并分支"></a><a href="#4-1-创建与合并分支" title="4.1 创建与合并分支"></a>4.1 创建与合并分支</h4><p>创建并切换至test分支 </p>
 <pre>git checkout -b test</pre>
 
